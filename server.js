@@ -8,9 +8,11 @@ app.use(express.urlencoded({extended:false}));
 
 connectDB()
 
-const auth=require('./auth/auth.router')
+const auth=require('./auth/auth.router');
+const fertilizers=require('./fertilizers/fertilizers.router');
 
-app.use('/auth',auth)
+app.use('/auth',auth);
+app.use('/fertilizers',fertilizers);
 
 app.listen(5000,()=>{
     console.log(`server is running on port 5000`)

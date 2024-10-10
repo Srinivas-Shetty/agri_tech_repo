@@ -31,6 +31,9 @@ module.exports={
             req.mobileNumber=verifyToken.mobileNumber;
             next()
         } catch(error){
+            if(error.message=="jwt expired"){
+                error.message="Otp expired, Please resend otp to continue"
+            }
            return failure(500,res,false,error.message);
         }
     },
@@ -58,6 +61,18 @@ module.exports={
 
         } catch(error){
             return failure(500,res,false,error.message);
+        }
+    },
+    authenticateToken: async (req,res,next)=>{
+        try{
+            const authHeader=await req.headers['authorization'];
+            const token=await authHeader &&authHeader.split(' ')[1];
+
+            const verifyToken=jwt.verify(token,process.env.ACCESS_TOKEN_KEY);
+            console.log(verifyToken,"verifyTokenverifyToken");
+            next();
+        } catch(error){
+           return failure(500,res,false,error.message);
         }
     },
 }

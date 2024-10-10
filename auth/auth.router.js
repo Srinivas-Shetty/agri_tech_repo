@@ -5,7 +5,7 @@ const { generateTokenForOTP, authenticateLoginToken, generateToken } = require('
 const { storeOtpController,loginController } = require('./auth.controller');
 
 router.post('/send-otp',sendOtp,storeOtpController,generateTokenForOTP);
-router.post('/login',authenticateLoginToken,loginController,generateToken)
+router.post('/login',authenticateLoginToken,loginController,generateToken);
 
 
 module.exports = router;

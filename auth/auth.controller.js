@@ -17,6 +17,9 @@ module.exports={
     loginController:async (req,res,next)=>{
         try {
             const userOtp=req.body.userOtp;
+            if(!userOtp){
+                return failure(400,res,false,"OTP is required!")
+            }
             const mobileNumber=req.mobileNumber;
             const result=await loginService(mobileNumber,userOtp);
             console.log(result,"result");
