@@ -60,4 +60,3 @@ module.exports = mongoose.model('Fertilizer', fertilizerSchema);
 
 
 
-[{"question": "How often should I use NitroMax Fertilizer?","answer": "It is recommended to use it once during the growing season."},{"question": "Is this fertilizer suitable for organic farming?","answer": "No, NitroMax is a chemical fertilizer and not suitable for organic farming."},{"question": "Can I mix NitroMax with other fertilizers?","answer": "Yes, but make sure to consult an agricultural expert for optimal results."}]

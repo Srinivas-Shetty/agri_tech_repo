@@ -7,20 +7,17 @@ const Pesticides = new Schema({
         required: true,
         trim: true
     },
-    type: {
+    PesticideType: {
         type: String,
         enum: [
-            'Pesticide',
             'Fungicide',
             'Herbicide',
-            'Nematicide',
-            'Growth Regulator',
-            'Biopesticide',
-            'Fertility Supplement',
-            'Microbial Inoculant',
-            'Seed Treatment',
-            'Bactericide',
-            'Molluscicide'
+            'Insecticides',
+            'Rodenticides',
+            'Larvicides',
+            'Molluscicides',
+            'Bactericides',
+            'Algaecides',
         ],
         required: true
     },
@@ -44,6 +41,9 @@ const Pesticides = new Schema({
     uses: {
         type: String, // Instructions or benefits of use
         required: true
+    },
+    discount:{
+        type:String
     },
     priceByQuantity: [{
         quantity: { 
@@ -74,3 +74,6 @@ const Pesticides = new Schema({
 }, { timestamps: true });
 
 module.exports = mongoose.model('Pesticides', Pesticides);
+
+
+
